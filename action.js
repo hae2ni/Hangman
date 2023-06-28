@@ -1,36 +1,44 @@
 const word = "gorgeous";
 const answer = word.split("");
-console.log(answer);
+let life = answer.length;
 
-const INPUT_ANSWER = [];
+let wrong = [];
 
-const $underLine = document.getElementById("underLine");
 const $answerInput = document.getElementById("anwerInput");
 const $youwrong = document.getElementById("youwrong");
+const $lifeCount = document.getElementById("lifeCount");
+const $underLine = document.querySelectorAll(".underLine");
 
-//시작 세팅  함수
-function init() {
-  answer.map((text) => {
-    $p = document.createElement("p");
-    $underLine.appendChild($p);
-    $p.innerText = "_";
-  });
-}
-init();
+const $g = document.querySelector(".g");
+const $o = document.querySelector(".o");
+const $r = document.querySelector(".r");
+const $e = document.querySelector(".e");
+const $s = document.querySelector(".s");
+const $u = document.querySelector(".u");
+
+const $answer = document.querySelectorAll(".answer ");
 
 //글자 입력 함수
-function inputAnswer(e) {
-  const $answer = $answerInput.value;
-  const wrong = [];
-  console.log($answer);
-  INPUT_ANSWER.push($answer);
-  console.log(INPUT_ANSWER);
+function inputAnswer() {
+  const $answervalue = $answerInput.value;
 
-  answer.forEach((text) => {
-    if (text === $answer) {
-      console.log("here");
-    } else {
-      $youwrong.innerText += `${$answer}`;
-    }
-  });
+  $answer.forEach((value) =>
+    value.classList.contains($answervalue)
+      ? value.classList.remove("notYet") &
+        $underLine.forEach((value) =>
+          value.classList.contains($answervalue)
+            ? value.classList.add("notYet")
+            : undefined
+        )
+      : wrong.push($answervalue)
+  );
 }
+
+//클릭해서 틀린 애들 화면에 불러오기
+function clickBtn() {
+  console.log(wrong);
+  answer.includes(wrong[0]) ? undefined : ($youwrong.innerText += wrong[0]);
+  wrong = [];
+}
+
+function reset() {}

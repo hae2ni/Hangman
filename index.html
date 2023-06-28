@@ -7,18 +7,56 @@
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <header>나 좀 살려죠</header>
+    <header>
+      나 좀 살려죠
+      <section id="lifeCount"></section>
+    </header>
     <main>
       <section id="hangmanimg">
         <canvas />
       </section>
       <section id="answerContainer">
-        <div id="underLine"></div>
+        <div>
+          <p class="answer g notYet">g</p>
+          <p class="underLine g">_</p>
+        </div>
+        <p class="answer o notYet">o</p>
+        <p class="underLine o">_</p>
+
+        <div>
+          <p class="answer r notYet">r</p>
+          <p class="underLine r">_</p>
+        </div>
+
+        <div>
+          <p class="answer g notYet">g</p>
+          <p class="underLine g">_</p>
+        </div>
+
+        <div>
+          <p class="answer e notYet">e</p>
+          <p class="underLine e">_</p>
+        </div>
+
+        <div>
+          <p class="answer o notYet">o</p>
+          <p class="underLine o">_</p>
+        </div>
+
+        <div>
+          <p class="answer u notYet">u</p>
+          <p class="underLine u">_</p>
+        </div>
+
+        <div>
+          <p class="answer s notYet">s</p>
+          <p class="underLine s">_</p>
+        </div>
       </section>
       <section id="whatyouwrote">
         <p id="youwrong"></p>
       </section>
-      <section>
+      <section id="anwerSubmit">
         <input
           id="anwerInput"
           type="text"
@@ -26,9 +64,12 @@
           maxlength="1"
           onchange="inputAnswer()"
         />
-        <button>클릭!</button>
+        <button id="clickBtn" onclick="clickBtn()">클릭!</button>
       </section>
     </main>
+    <footer>
+      <button id="resetBtn">reset</button>
+    </footer>
   </body>
   <script src="action.js"></script>
 </html>
