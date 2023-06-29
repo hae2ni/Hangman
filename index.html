@@ -13,7 +13,7 @@
     </header>
     <main>
       <section id="hangmanimg">
-        <canvas />
+        <canvas id="hangman" width="200px" height="250px"></canvas>
       </section>
       <section id="answerContainer">
         <div>
@@ -56,19 +56,14 @@
       <section id="whatyouwrote">
         <p id="youwrong"></p>
       </section>
+      <section id="isSame"></section>
       <section id="anwerSubmit">
-        <input
-          id="anwerInput"
-          type="text"
-          autofocus
-          maxlength="1"
-          onchange="inputAnswer()"
-        />
+        <input id="anwerInput" type="text" autofocus maxlength="1" />
         <button id="clickBtn" onclick="clickBtn()">클릭!</button>
       </section>
     </main>
     <footer>
-      <button id="resetBtn">reset</button>
+      <button id="resetBtn" onclick="reset()">reset</button>
     </footer>
   </body>
   <script src="action.js"></script>

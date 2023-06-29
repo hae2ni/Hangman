@@ -39,8 +39,8 @@ main {
   gap: 50px;
   background-color: lightgoldenrodyellow;
 
-  height: 600px;
   font-size: 25px;
+  height: 100vh;
 }
 
 footer {
@@ -92,4 +92,12 @@ input {
 #anwerSubmit {
   display: flex;
   gap: 30px;
+}
+
+#whatyouwrote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100px;
 }
