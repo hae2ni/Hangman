@@ -1,6 +1,5 @@
 const word = "gorgeous";
 const answer = word.split("");
-let life = answer.length;
 
 let wrong = [];
 let youWrote = [];
@@ -19,12 +18,11 @@ const $s = document.querySelector(".s");
 const $u = document.querySelector(".u");
 
 const $answer = document.querySelectorAll(".answer ");
-
 const $canvas = document.getElementById("hangman");
 const context = $canvas.getContext("2d");
 const DRAWS = ["head", "body", "rightHarm", "leftHarm", "rightLeg", "leftLeg"];
 
-//클릭해서 틀린 애들 화면에 불러오기
+//클릭해서 틀린 애들 화면에 불러오기 (단어 맞추고 틀리면 그림그리고, 아니면 정답)
 let step = 0;
 let answerStep = 0;
 function clickBtn() {
@@ -67,6 +65,7 @@ function clickBtn() {
   }
 }
 
+//리셋버튼
 function reset() {
   context.clearRect(0, 0, $canvas.clientWidth, $canvas.height);
   wrong = [];
