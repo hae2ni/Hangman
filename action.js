@@ -26,7 +26,7 @@ const DRAWS = ["head", "body", "rightHarm", "leftHarm", "rightLeg", "leftLeg"];
 
 //클릭해서 틀린 애들 화면에 불러오기
 let step = 0;
-let input = "";
+let answerStep = 0;
 function clickBtn() {
   const $answervalue = $answerInput.value;
   input = $answervalue;
@@ -51,7 +51,7 @@ function clickBtn() {
   youWrote.push($answervalue);
 
   answer.includes(wrong[0])
-    ? undefined
+    ? answerStep++
     : ($youwrong.innerText += wrong[0]) & Draw(DRAWS[step++]);
   wrong = [];
 
@@ -59,11 +59,20 @@ function clickBtn() {
     isSame.innerText += "힝,,,나 주거뗘ㅠ";
   }
 
-  $answerInput.value = " ";
+  if (answerStep === 6) {
+    isSame.innerText += "히히 살았다! 고마오";
+    setTimeout(() => {
+      reset();
+    }, [5000]);
+  }
 }
 
 function reset() {
   context.clearRect(0, 0, $canvas.clientWidth, $canvas.height);
+  wrong = [];
+  youWrote = [];
+  $answer.forEach((value) => value.classList.add("notYet"));
+  location.reload();
 }
 
 //행맨그리기
